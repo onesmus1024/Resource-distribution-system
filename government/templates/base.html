@@ -1,0 +1,65 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resource distribution</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+    <script src="{% static 'main.js' %} " defer></script>
+</head>
+
+<body>
+    {% include 'nav.html' %}
+    {% block content %}
+    <h2>imports</h2>
+    <div class="container">
+        {% if imports %}
+        {% for import in imports %}
+
+        <div class="card">
+            <div class="card-title">buyer {{import }}</div>
+            <div class="card-text">Date of purchase {{import.date_of_import }}</div>
+            <img src="https://images.unsplash.com/photo-1578356058390-f58c575337a2?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=60&raw_url=true&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGV0cm9sZXVtfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500"
+                alt="petroleum">
+        </div>
+
+        {% endfor %}
+        {% endif %}
+    </div>
+    <h2>local supplies</h2>
+    <div class="container">
+        {% if local_supplies %}
+        {% for local_supply in local_supplies %}
+
+        <div class="card">
+            <div class="card-title">Buyer {{ local_supply }}</div>
+            <div class="card-text">Date of purchase {{local_supply.date_of_purchase }}</div>
+            <img src="https://media.istockphoto.com/photos/oil-or-gas-transportation-with-blue-gas-or-pipe-line-valves-on-soil-picture-id1312405670?b=1&k=20&m=1312405670&s=170667a&w=0&h=FqNoVvesCvqLv9l3X2R6lmXSMucXd3Kk8oR3E6cd2Cg="
+                alt="petroleum">
+        </div>
+
+        {% endfor %}
+        {% endif %}
+    </div>
+    <h2>final consumers</h2>
+    <div class="container">
+        {% if consumers %}
+        {% for consumer in consumers %}
+
+        <div class="card">
+            <div class="card-title">buyer {{ consumer }}</div>
+            <div class="card-text">Date of purchase {{consumer.date_of_purchase }}</div>
+            <img src="https://media.istockphoto.com/photos/nozzle-gasoline-pump-fuel-station-isolated-on-white-background-green-picture-id1331320108?b=1&k=20&m=1331320108&s=170667a&w=0&h=UyAZMNxMl00n8LZYnLMd3RV1io2mD99ZGEX3E-gAtEI="
+                alt="petroleum">
+        </div>
+
+        {% endfor %}
+        {% endif %}
+    </div>
+    {% endblock %}
+
+</body>
+
+</html>

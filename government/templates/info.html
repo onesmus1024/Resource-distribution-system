@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+{% if messages %} 
+    {% for message in messages %}
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <p>Results of you purchase</p>
+          <span class="close">&times;</span>
+          {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+          <p style="font-size: 200px; color: red;">&times;</p>
+            <p style="color: red; font-size: large; font-weight: bold;">{{ message }}</p>
+            {% else %}
+            <p style="font-size: 200px; color: green;">&check;</p>
+            <p style="color: green; font-size: large; font-weight: bold;">{{ message }}</p>
+            {% endif %}
+        </div>
+      
+      </div>
+       
+    {% endfor %}
+{% endif %}
+{% endblock %}
