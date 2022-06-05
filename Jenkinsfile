@@ -17,7 +17,7 @@ pipeline{
     }
     stage('Deploy'){
       steps{
-        echo "Deploy"
+        echo "sudo docker push onesmus1024/rds  "
       }
     }
   }
